@@ -30,8 +30,7 @@ public class UtilisateurService {
         Utilisateur savedUtilisateur = utilisateurRepository.save(utilisateur);
         return savedUtilisateur ;
     }
-
-    public void deleteUtilisateur(final Long id){
-        utilisateurRepository.deleteById(id);
+    public String loginUser(String mail, String password){
+        return utilisateurRepository.findIdByMailAndPwd(mail,password);
     }
 }

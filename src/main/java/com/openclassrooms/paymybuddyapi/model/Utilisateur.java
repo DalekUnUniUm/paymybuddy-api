@@ -38,4 +38,20 @@ public class Utilisateur {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    public Long getUtilisateur_id() {
+        return utilisateur_id;
+    }
+
+    public void setUtilisateur_id(Long utilisateur_id) {
+        this.utilisateur_id = utilisateur_id;
+    }
+
+    public int getSoldesId() {
+        return soldesId;
+    }
+
+    public void setSoldesId(int soldesId) {
+        this.soldesId = soldesId;
+    }
 }

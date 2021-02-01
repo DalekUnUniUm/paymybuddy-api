@@ -3,9 +3,7 @@ package com.openclassrooms.paymybuddyapi.controller;
 import com.openclassrooms.paymybuddyapi.model.Reseau;
 import com.openclassrooms.paymybuddyapi.service.ReseauService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ReseauController {
@@ -13,9 +11,21 @@ public class ReseauController {
     @Autowired
     private ReseauService reseauService ;
 
+    /**Endpoint qui permet d'avoir le nombre d'ami selon l'ID de l'utilisateur**/
+    @GetMapping("/reseau/nbrFriends")
+    public int nbrAmi(@RequestParam("userId") int userId){
+        return reseauService.nbrAmis(userId);
+    }
+
+    /**Endpoint qui permet de savoir si deux personnes sont déjà amis**/
+    @GetMapping("/reseau/isFriends")
+    public int isFriends(@RequestParam("userAId") int userAId, @RequestParam("userBId") int userBId){
+        return reseauService.isFriends(userAId,userBId);
+    }
 
     @PostMapping("/reseau")
     public Reseau addFriend(@RequestBody Reseau reseau){
         return reseauService.saveReseau(reseau) ;
     }
+
 }

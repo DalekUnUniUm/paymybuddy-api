@@ -3,9 +3,7 @@ package com.openclassrooms.paymybuddyapi.controller;
 import com.openclassrooms.paymybuddyapi.model.PorteMonnaie;
 import com.openclassrooms.paymybuddyapi.service.PorteMonnaieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PorteMonnaieController {
@@ -19,5 +17,21 @@ public class PorteMonnaieController {
         return porteMonnaieService.savePorteMonnaie(porteMonnaie);
     }
 
+    /**Endpoint qui permet de récupérer le soldes selon l'ID de soldes_id dans la table utilisateur**/
+    @GetMapping("/wallet/soldes")
+    public int getSoldes(@RequestParam("soldesId") int soldesId){
+        return porteMonnaieService.getSoldes(soldesId);
+    }
 
+    /**Endpoint qui permet de d'ajouter de l'argent selon l'ID de soldes_id dans la table utilisateur**/
+    @PutMapping("/wallet/updateSoldesAdd")
+    public void updateSoldesAdd(@RequestParam("addSoldes") int addSoldes, @RequestParam("porteMonnaieId") int porteMonnaieId){
+        porteMonnaieService.updateSoldesAdd(addSoldes,porteMonnaieId);
+    }
+
+    /**Endpoint qui permet de d'enelver de l'argent selon l'ID de soldes_id dans la table utilisateur**/
+    @PutMapping("/wallet/updateSoldesSoustract")
+    public void updateSoldesSoustract(@RequestParam("soustractSoldes") int soustractSoldes, @RequestParam("porteMonnaieId") int porteMonnaieId){
+        porteMonnaieService.updateSoldesSoustract(soustractSoldes,porteMonnaieId);
+    }
 }

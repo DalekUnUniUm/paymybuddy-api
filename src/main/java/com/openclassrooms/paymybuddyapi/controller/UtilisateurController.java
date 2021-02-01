@@ -22,6 +22,7 @@ public class UtilisateurController {
     private CheckingDataBaseUtils checkingDataBaseUtils ;
     @Autowired
     private PasswordUtils passwordUtils;
+
     /**Endpoint de /register
      * Create = @PostMapping("/register")
      * @param utilisateur

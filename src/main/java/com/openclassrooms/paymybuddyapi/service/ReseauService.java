@@ -2,6 +2,7 @@ package com.openclassrooms.paymybuddyapi.service;
 
 import com.openclassrooms.paymybuddyapi.model.Reseau;
 import com.openclassrooms.paymybuddyapi.repository.ReseauRepository;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,10 @@ public class ReseauService {
     /**Endpoint qui permet de savoir si deux personnes sont déjà amis**/
     public int isFriends(int userAId, int userBid){
         return reseauRepository.isFriends(userAId,userBid);
+    }
+
+    /**Endpoint qui renvoie la liste des prénoms**/
+    public JSONArray listFriends(int utilisateurId){
+        return reseauRepository.listFriends(utilisateurId);
     }
 }

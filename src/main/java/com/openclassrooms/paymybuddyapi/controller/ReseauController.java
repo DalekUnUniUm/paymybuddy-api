@@ -2,6 +2,7 @@ package com.openclassrooms.paymybuddyapi.controller;
 
 import com.openclassrooms.paymybuddyapi.model.Reseau;
 import com.openclassrooms.paymybuddyapi.service.ReseauService;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,10 @@ public class ReseauController {
     public int isFriends(@RequestParam("userAId") int userAId, @RequestParam("userBId") int userBId){
         return reseauService.isFriends(userAId,userBId);
     }
-
+    @GetMapping("/reseau/listFriends")
+    public JSONArray listFriends(@RequestParam("utilisateur_id") int utilisateurId){
+        return reseauService.listFriends(utilisateurId);
+    }
     @PostMapping("/reseau")
     public Reseau addFriend(@RequestBody Reseau reseau){
         return reseauService.saveReseau(reseau) ;

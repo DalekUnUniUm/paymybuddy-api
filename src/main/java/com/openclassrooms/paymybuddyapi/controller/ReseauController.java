@@ -2,7 +2,7 @@ package com.openclassrooms.paymybuddyapi.controller;
 
 import com.openclassrooms.paymybuddyapi.model.Reseau;
 import com.openclassrooms.paymybuddyapi.service.ReseauService;
-import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +23,13 @@ public class ReseauController {
     public int isFriends(@RequestParam("userAId") int userAId, @RequestParam("userBId") int userBId){
         return reseauService.isFriends(userAId,userBId);
     }
-    @GetMapping("/reseau/listFriends")
-    public JSONArray listFriends(@RequestParam("utilisateur_id") int utilisateurId){
-        return reseauService.listFriends(utilisateurId);
+    @GetMapping("/reseau/listFriendsFirstName")
+    public JSONObject listFriendsFirstName(@RequestParam("utilisateur_id") int utilisateurId){
+        JSONObject listFriend = new JSONObject();
+
+        listFriend.put("firstName",reseauService.listFriendsFirstName(utilisateurId));
+
+        return listFriend;
     }
     @PostMapping("/reseau")
     public Reseau addFriend(@RequestBody Reseau reseau){

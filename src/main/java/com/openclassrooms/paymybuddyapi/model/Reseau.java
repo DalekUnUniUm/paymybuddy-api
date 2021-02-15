@@ -1,5 +1,6 @@
 package com.openclassrooms.paymybuddyapi.model;
 
+import jdk.jshell.execution.Util;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ public class Reseau {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reseau_id")
     private Long reseau_id ;
 
     @Column(name = "userA_id")
@@ -18,6 +20,5 @@ public class Reseau {
 
     @Column(name = "userB_id")
     private int userBId ;
-
 
 }

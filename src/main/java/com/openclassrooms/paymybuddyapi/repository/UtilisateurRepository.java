@@ -25,4 +25,12 @@ public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long>
     /**Permet de trouver un mot de passer via un email, utilisé pour comparer un mot de passe externe avec un mot de passe de la base de données**/
     @Query(value = "SELECT password FROM utilisateurs u WHERE u.mail = :mail", nativeQuery = true)
     String findPwdByMail(@Param("mail") String mail);
+
+    /**Permet de récupérer l'ID en fonction du prénom**/
+    @Query(value = "SELECT utilisateur_id FROM utilisateurs u WHERE u.prenom = :firstname", nativeQuery = true)
+    String utilisateurIdByName(@Param("firstname") String firstName);
+
+    /**Permet de récupérer le soldes ID en fonction de l'utilisateur de l'ID**/
+    @Query(value = "SELECT soldes_id FROM utilisateurs u WHERE u.utilisateur_id = :utilisateurId", nativeQuery = true)
+    String soldesIdByUserId(@Param("utilisateurId") String utilisateurId);
 }

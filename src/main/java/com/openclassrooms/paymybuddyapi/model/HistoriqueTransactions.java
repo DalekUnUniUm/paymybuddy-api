@@ -17,12 +17,12 @@ public class HistoriqueTransactions {
     private int utilisateurId ;
 
     @Column(name = "userAorB")
-    private int userAOrBId ;
+    private int utilisateurIdFriends ;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "sommes")
-    private int sommes ;
+    private int amount ;
 
 }

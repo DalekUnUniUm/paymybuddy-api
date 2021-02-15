@@ -13,13 +13,12 @@ public class GenericReponseController {
     @Autowired
     private CheckingDataBaseUtils checkingDataBaseUtils ;
 
-    @RequestMapping(value = "emailExit", method = RequestMethod.GET)
+    @RequestMapping(value = "emailExist", method = RequestMethod.GET)
     public int emailExist(@RequestParam("email") String mail){
         if(checkingDataBaseUtils.utilisateurExist(mail) == true){
-            return 0 ;
+            return 1 ;
         }
-
-        return 1 ;
+        return 0;
     }
 
 }

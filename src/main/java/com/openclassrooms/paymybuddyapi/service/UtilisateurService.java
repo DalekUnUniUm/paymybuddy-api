@@ -33,4 +33,17 @@ public class UtilisateurService {
     public String loginUser(String mail, String password){
         return utilisateurRepository.findIdByMailAndPwd(mail,password);
     }
+    /**Cet endpoint permet de récupérer l'Id d'un utilisateur selon mail**/
+    public String findIdByMail(String mail){
+        return utilisateurRepository.findIdByMail(mail);
+    }
+
+    public String utilisateurIdByName(String firstName){
+        return utilisateurRepository.utilisateurIdByName(firstName);
+    }
+
+    public String soldesIdByUserId(String utilisateurId){
+        return utilisateurRepository.soldesIdByUserId(utilisateurId);
+    }
+
 }

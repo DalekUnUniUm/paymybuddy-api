@@ -2,6 +2,7 @@ package com.openclassrooms.paymybuddyapi.repository;
 
 import com.openclassrooms.paymybuddyapi.model.Reseau;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,10 +16,10 @@ public interface ReseauRepository extends CrudRepository<Reseau,Long> {
     int numberOfFriends(@Param("userAId") int userIdA, @Param("userBId") int userIdB);
 
     /**Renvoie si deux personnes sont déjà amis**/
-    @Query(value = "SELECT COUNT(*) FROM reseau r WHERE r.userA_id = :userAId AND r.userB_id = :userBId", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM reseau r WHERE r.userA_id = :userAId AND r.userB_id = :userBId OR r.userA_id = :userBId AND r.userB_id = :userAId", nativeQuery = true)
     int isFriends(@Param("userAId") int userIdA, @Param("userBId") int userIdB);
 
-    /**Renvoie la liste des prénoms**/
+    /**Renvoie la liste des prenoms**/
     @Query(value = "SELECT prenom FROM utilisateurs INNER JOIN reseau WHERE utilisateurs.utilisateur_id = userA_id AND reseau.userB_id = :utilisateur_id OR utilisateurs.utilisateur_id = userB_id AND reseau.userA_id = :utilisateur_id ", nativeQuery = true)
-    JSONArray listFriends(@Param("utilisateur_id") int utilisateurId);
+    JSONArray listFriendsFirstName(@Param("utilisateur_id") int utilisateurId);
 }

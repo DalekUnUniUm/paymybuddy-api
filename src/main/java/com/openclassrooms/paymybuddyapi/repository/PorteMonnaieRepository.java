@@ -18,7 +18,7 @@ public interface PorteMonnaieRepository extends CrudRepository<PorteMonnaie, Lon
     void updateAvailablePorteMonnaie(@Param("porte_monnaie_id") int porteMonnaieId);
 
     /**Permet de récupérer le soldes selon l'ID de soldes_id dans la table utilisateur**/
-    @Query(value = "SELECT soldes FROM porte_monnaire p WHERE p.porte_monaie_id = :soldesId", nativeQuery = true)
+    @Query(value = "SELECT soldes FROM porte_monnaie p WHERE p.porte_monnaie_id = :soldesId", nativeQuery = true)
     int getSoldes(@Param("soldesId") int soldesId);
 
     /**Endpoint qui permet de d'ajouter de l'argent selon l'ID de soldes_id dans la table utilisateur**/

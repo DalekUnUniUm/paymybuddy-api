@@ -16,10 +16,13 @@ public class Utilisateur {
 
     private String mail ;
     private String password ;
+
     @Column(name = "nom")
     private String lastName ;
+
     @Column(name = "prenom")
     private String firstName ;
+
     @Column(name = "soldes_id")
     private int soldesId ;
 

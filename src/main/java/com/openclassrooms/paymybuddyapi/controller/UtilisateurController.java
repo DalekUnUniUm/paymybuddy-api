@@ -41,7 +41,11 @@ public class UtilisateurController {
         String hshPwd = passwordUtils.getPasswordFromDb(password,mail);
         return utilisateurService.loginUser(mail,hshPwd);
     }
-
+    /**Cet endpoint permet de récupérer l'Id d'un utilisateur selon mail**/
+    @RequestMapping(value = "/utilisateur", method = RequestMethod.GET)
+    public String findIdByMail(@RequestParam("mail") String mail){
+        return utilisateurService.findIdByMail(mail);
+    }
     /**Endpoint qui permet de récuperer tout les utilisateurs de la base de données**/
     @GetMapping("/utilisateurs")
     public Iterable<Utilisateur> getUtilisateurs() {
@@ -51,5 +55,15 @@ public class UtilisateurController {
     @GetMapping("/utilisateur/{id}")
     public Optional<Utilisateur> getUtilisataur(@PathVariable("id") final Long id){
         return utilisateurService.getUtilisateur(id);
+    }
+    /**Permet de récupérer l'ID en fonction du prénom**/
+    @GetMapping(value = "/utilisateurIdByName")
+    public String utilisateurIdByName(@RequestParam("firstName") String firstName){
+        return utilisateurService.utilisateurIdByName(firstName);
+    }
+    /**Permet de récupérer le soldes ID en fonction de l'utilisateur de l'ID**/
+    @GetMapping(value = "/utilisateur/soldesIdById")
+    public String soldesIdByUserId(@RequestParam("utilisateurId") String utilisateurId){
+        return utilisateurService.soldesIdByUserId(utilisateurId);
     }
 }

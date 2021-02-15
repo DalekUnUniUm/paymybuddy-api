@@ -25,13 +25,13 @@ public class PorteMonnaieController {
 
     /**Endpoint qui permet de d'ajouter de l'argent selon l'ID de soldes_id dans la table utilisateur**/
     @PutMapping("/wallet/updateSoldesAdd")
-    public void updateSoldesAdd(@RequestParam("addSoldes") int addSoldes, @RequestParam("porteMonnaieId") int porteMonnaieId){
+    public void updateSoldesAdd(@RequestParam("addSoldes") int addSoldes, @RequestParam("soldesId") int porteMonnaieId){
         porteMonnaieService.updateSoldesAdd(addSoldes,porteMonnaieId);
     }
 
     /**Endpoint qui permet de d'enelver de l'argent selon l'ID de soldes_id dans la table utilisateur**/
     @PutMapping("/wallet/updateSoldesSoustract")
-    public void updateSoldesSoustract(@RequestParam("soustractSoldes") int soustractSoldes, @RequestParam("porteMonnaieId") int porteMonnaieId){
+    public void updateSoldesSoustract(@RequestParam("soustractSoldes") int soustractSoldes, @RequestParam("soldesId") int porteMonnaieId){
         porteMonnaieService.updateSoldesSoustract(soustractSoldes,porteMonnaieId);
     }
 }

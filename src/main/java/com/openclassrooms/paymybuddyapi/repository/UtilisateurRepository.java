@@ -33,4 +33,7 @@ public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long>
     /**Permet de récupérer le soldes ID en fonction de l'utilisateur de l'ID**/
     @Query(value = "SELECT soldes_id FROM utilisateurs u WHERE u.utilisateur_id = :utilisateurId", nativeQuery = true)
     String soldesIdByUserId(@Param("utilisateurId") String utilisateurId);
+
+    @Query(value = "SELECT prenom FROM utilisateurs u WHERE u.utilisateur_id = :utilisateurId", nativeQuery = true)
+    String firstNameByUserId(@Param("utilisateurId") String utilisateurId);
 }

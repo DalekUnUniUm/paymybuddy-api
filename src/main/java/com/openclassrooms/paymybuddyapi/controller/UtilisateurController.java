@@ -66,4 +66,9 @@ public class UtilisateurController {
     public String soldesIdByUserId(@RequestParam("utilisateurId") String utilisateurId){
         return utilisateurService.soldesIdByUserId(utilisateurId);
     }
+
+    @GetMapping(value = "/utilisateur/firstNameById")
+    public String firstNameByUserId(@RequestParam("utilisateurId") String utilisateurId){
+        return utilisateurService.firstNameByUserId(utilisateurId);
+    }
 }

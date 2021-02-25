@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HistoriqueTransactionsRepository extends CrudRepository<HistoriqueTransactions, Long> {
 
-    /**Permet de récupérer l'historique des transactions**/
-    @Query(value = "SELECT prenom, description, sommes FROM utilisateurs  INNER JOIN historique_transaction  WHERE utilisateurs.utilisateur_id = user_aorb AND historique_transaction.utilisateur_id = :utilisateur_id", nativeQuery = true)
-    JSONArray getHistorique(@Param("utilisateur_id") int utilisateurId);
+    @Query(value = "SELECT historique_transactions_id FROM historique_transaction  WHERE  historique_transaction.utilisateur_id = :utilisateur_id", nativeQuery = true)
+    JSONArray getHistoriqueId(@Param("utilisateur_id") int utilisateurId);
 }

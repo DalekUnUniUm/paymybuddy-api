@@ -17,7 +17,7 @@ public interface ReseauRepository extends CrudRepository<Reseau,Long> {
 
     /**Renvoie si deux personnes sont déjà amis**/
     @Query(value = "SELECT COUNT(*) FROM reseau r WHERE r.userA_id = :userAId AND r.userB_id = :userBId OR r.userA_id = :userBId AND r.userB_id = :userAId", nativeQuery = true)
-    int isFriends(@Param("userAId") int userIdA, @Param("userBId") int userIdB);
+    int isFriends(@Param("userAId") String userIdA, @Param("userBId") String userBId);
 
     /**Renvoie la liste des prenoms**/
     @Query(value = "SELECT prenom FROM utilisateurs INNER JOIN reseau WHERE utilisateurs.utilisateur_id = userA_id AND reseau.userB_id = :utilisateur_id OR utilisateurs.utilisateur_id = userB_id AND reseau.userA_id = :utilisateur_id ", nativeQuery = true)

@@ -20,7 +20,7 @@ public class ReseauController {
 
     /**Endpoint qui permet de savoir si deux personnes sont déjà amis**/
     @GetMapping("/reseau/isFriends")
-    public int isFriends(@RequestParam("userAId") int userAId, @RequestParam("userBId") int userBId){
+    public int isFriends(@RequestParam("userAId") String userAId, @RequestParam("userBId") String userBId){
         return reseauService.isFriends(userAId,userBId);
     }
     @GetMapping("/reseau/listFriendsFirstName")

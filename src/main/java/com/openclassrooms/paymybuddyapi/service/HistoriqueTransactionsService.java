@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HistoriqueTransactionsService {
@@ -20,7 +21,11 @@ public class HistoriqueTransactionsService {
     }
 
     /**Endpoint qui permet de récupérer l'historique des transactions**/
-    public JSONArray getHistorique(int utilisateurId){
-        return historiqueTransactionsRepository.getHistorique(utilisateurId);
+    public JSONArray getHistoriqueId(int utilisateurId){
+        return historiqueTransactionsRepository.getHistoriqueId(utilisateurId);
     }
+    public Iterable<HistoriqueTransactions> getHistoriqueById(List<Long> ids){
+        return historiqueTransactionsRepository.findAllById(ids);
+    }
+
 }

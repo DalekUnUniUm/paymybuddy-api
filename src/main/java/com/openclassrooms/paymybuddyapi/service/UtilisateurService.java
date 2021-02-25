@@ -46,4 +46,8 @@ public class UtilisateurService {
         return utilisateurRepository.soldesIdByUserId(utilisateurId);
     }
 
+    public String firstNameByUserId(String utilisateurId){
+        return utilisateurRepository.firstNameByUserId(utilisateurId);
+    }
+
 }

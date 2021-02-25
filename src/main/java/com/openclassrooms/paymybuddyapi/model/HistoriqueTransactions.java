@@ -11,18 +11,17 @@ public class HistoriqueTransactions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long hisotirqueTransactionsId ;
+    private Long historiqueTransactionsId ;
 
     @Column(name = "utilisateur_id")
     private int utilisateurId ;
 
     @Column(name = "userAorB")
-    private int utilisateurIdFriends ;
+    private String utilisateurIdFriends ;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "sommes")
     private int amount ;
-
 }

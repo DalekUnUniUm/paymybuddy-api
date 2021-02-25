@@ -25,7 +25,7 @@ public class ReseauService {
     }
 
     /**Endpoint qui permet de savoir si deux personnes sont déjà amis**/
-    public int isFriends(int userAId, int userBid){
+    public int isFriends(String userAId, String userBid){
         return reseauRepository.isFriends(userAId,userBid);
     }
 

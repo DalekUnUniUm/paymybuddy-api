@@ -6,6 +6,7 @@ import jdk.jshell.execution.Util;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Iterator;
 import java.util.List;
@@ -26,6 +27,7 @@ public class UtilisateurService {
         return utilisateurRepository.findAll();
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public Utilisateur saveUtilisateur(Utilisateur utilisateur){
         Utilisateur savedUtilisateur = utilisateurRepository.save(utilisateur);
         return savedUtilisateur ;

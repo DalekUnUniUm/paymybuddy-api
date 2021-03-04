@@ -14,12 +14,15 @@ public class PorteMonnaie {
     private Long porteMonnaieId ;
 
     @Column(name = "soldes")
-    private int soldes ;
+    private double soldes ;
+
+    @Column(name = "bankaccount")
+    private int bankAccount ;
 
     @Column(name = "available")
     private boolean available ;
 
-    public int getSoldes() {
+    public double getSoldes() {
         return soldes;
     }
 

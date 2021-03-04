@@ -13,23 +13,32 @@ public class PorteMonnaieService {
     @Autowired
     private PorteMonnaieRepository porteMonnaieRepository ;
 
+    @Transactional(rollbackFor = Exception.class)
     public PorteMonnaie savePorteMonnaie(PorteMonnaie porteMonnaie){
         PorteMonnaie savedPorteMonnaie = porteMonnaieRepository.save(porteMonnaie);
         return savedPorteMonnaie ;
     }
+    @Transactional(rollbackFor = Exception.class)
+    public void updateBankAccount(String bankAccount, int porteMonnaieId){
+        porteMonnaieRepository.updateBankAccount(bankAccount,porteMonnaieId);
+    }
+    /**Permet de récupérer le numéro du compte en banque**/
+    public String getBankAccount(int soldesId){
+        return porteMonnaieRepository.getBankAccount(soldesId);
+    }
 
     /**Endpoint qui permet de récupérer le solde selon l'ID de soldes_id dans la table utilisateur**/
-    public int getSoldes(int soldesID){
+    public double getSoldes(int soldesID){
         return porteMonnaieRepository.getSoldes(soldesID);
     }
 
     /**Endpoint qui permet de d'ajouter de l'argent selon l'ID de soldes_id dans la table utilisateur**/
-    @Transactional
-    public void updateSoldesAdd(int addSoldes, int porteMonnaieId){
+    @Transactional(rollbackFor = Exception.class)
+    public void updateSoldesAdd(double addSoldes, int porteMonnaieId){
         porteMonnaieRepository.updateSoldesAdd(addSoldes, porteMonnaieId);
     }
-    @Transactional
-    public void updateSoldesSoustract(int soustractSoldes, int porteMonnaieId){
+    @Transactional(rollbackFor = Exception.class)
+    public void updateSoldesSoustract(double soustractSoldes, int porteMonnaieId){
         porteMonnaieRepository.updateSoldesSoustract(soustractSoldes, porteMonnaieId);
     }
 }

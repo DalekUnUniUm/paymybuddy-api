@@ -7,6 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReseauService {
@@ -14,6 +15,7 @@ public class ReseauService {
     @Autowired
     private ReseauRepository reseauRepository ;
 
+    @Transactional(rollbackFor = Exception.class)
     public Reseau saveReseau(Reseau reseau){
         Reseau savedReseau = reseauRepository.save(reseau);
         return savedReseau ;

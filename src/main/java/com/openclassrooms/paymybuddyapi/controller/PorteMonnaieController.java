@@ -16,10 +16,18 @@ public class PorteMonnaieController {
     public PorteMonnaie createPorteMonnaie(@RequestBody PorteMonnaie porteMonnaie){
         return porteMonnaieService.savePorteMonnaie(porteMonnaie);
     }
-
+    @PutMapping("/wallet/bankaccount")
+    public void updateBankAccount(@RequestParam("bankaccount") String bankAccount, @RequestParam("soldesId") int porteMonnaieId){
+        porteMonnaieService.updateBankAccount(bankAccount,porteMonnaieId);
+    }
+    /**Permet de récupérer le numéro du compte en banque**/
+    @GetMapping("/wallet/getBankAccount")
+    public String getBankAccount(@RequestParam("soldesId") int porteMonnaieId){
+        return porteMonnaieService.getBankAccount(porteMonnaieId);
+    }
     /**Endpoint qui permet de récupérer le soldes selon l'ID de soldes_id dans la table utilisateur**/
     @GetMapping("/wallet/soldes")
-    public int getSoldes(@RequestParam("soldesId") int soldesId){
+    public double getSoldes(@RequestParam("soldesId") int soldesId){
         return porteMonnaieService.getSoldes(soldesId);
     }
 

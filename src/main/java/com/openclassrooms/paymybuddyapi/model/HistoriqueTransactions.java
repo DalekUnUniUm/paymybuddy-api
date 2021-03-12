@@ -16,7 +16,7 @@ public class HistoriqueTransactions {
     @Column(name = "utilisateur_id")
     private int utilisateurId ;
 
-    @Column(name = "userAorB")
+    @Column(name = "user_aorb")
     private String utilisateurIdFriends ;
 
     @Column(name = "description")

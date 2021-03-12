@@ -15,7 +15,7 @@ public class PaymybuddyapiApplication implements CommandLineRunner {
 	@Override
 	public void run(String ...args){
 		System.out.println("---------------------");
-		System.out.println("PAY MY BUDDY API V0.7");
+		System.out.println("PAY MY BUDDY API V0.8");
 		System.out.println("---------------------");
 	}
 

@@ -16,6 +16,7 @@ public class HistoriqueTransactionsService {
     @Autowired
     private HistoriqueTransactionsRepository historiqueTransactionsRepository ;
 
+    /**Endpoint qui permet de créer un historique**/
     @Transactional(rollbackFor = Exception.class)
     public HistoriqueTransactions saveHistorique(HistoriqueTransactions historiqueTransactions){
         HistoriqueTransactions savedHistoriqueTransaction = historiqueTransactionsRepository.save(historiqueTransactions);
@@ -26,6 +27,7 @@ public class HistoriqueTransactionsService {
     public JSONArray getHistoriqueId(int utilisateurId){
         return historiqueTransactionsRepository.getHistoriqueId(utilisateurId);
     }
+    /**Endpoint qui permet de récupérer les données selon une liste d'ID**/
     public Iterable<HistoriqueTransactions> getHistoriqueById(List<Long> ids){
         return historiqueTransactionsRepository.findAllById(ids);
     }

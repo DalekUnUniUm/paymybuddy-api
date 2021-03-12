@@ -13,11 +13,13 @@ public class PorteMonnaieService {
     @Autowired
     private PorteMonnaieRepository porteMonnaieRepository ;
 
+    /**Endpoint qui permet la création d'un porte monnaie lors de l'enregistrement d'une personne**/
     @Transactional(rollbackFor = Exception.class)
     public PorteMonnaie savePorteMonnaie(PorteMonnaie porteMonnaie){
         PorteMonnaie savedPorteMonnaie = porteMonnaieRepository.save(porteMonnaie);
         return savedPorteMonnaie ;
     }
+    /**Permet d'associer un compte en banque**/
     @Transactional(rollbackFor = Exception.class)
     public void updateBankAccount(String bankAccount, int porteMonnaieId){
         porteMonnaieRepository.updateBankAccount(bankAccount,porteMonnaieId);

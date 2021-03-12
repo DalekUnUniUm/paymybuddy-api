@@ -12,8 +12,10 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository ;
 
+    /**Endpoint qui permet d'ajouter un ticket pour le support**/
     @Transactional(rollbackFor = Exception.class)
     public Contact saveContact(Contact contact){
+        System.out.println("Je viens là ?");
         Contact savedContact = contactRepository.save(contact);
         return savedContact ;
     }

@@ -19,6 +19,6 @@ public class Contact {
     @Column(name = "email")
     private String email ;
 
-    @Column(name = "problem")
+    @Column(name = "problems")
     private String problem ;
 }

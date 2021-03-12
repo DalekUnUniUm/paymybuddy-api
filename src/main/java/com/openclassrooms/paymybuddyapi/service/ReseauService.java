@@ -15,6 +15,7 @@ public class ReseauService {
     @Autowired
     private ReseauRepository reseauRepository ;
 
+    /**Endpoint qui permet d'ajouter deux amis**/
     @Transactional(rollbackFor = Exception.class)
     public Reseau saveReseau(Reseau reseau){
         Reseau savedReseau = reseauRepository.save(reseau);
